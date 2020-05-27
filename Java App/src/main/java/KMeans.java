@@ -130,7 +130,12 @@ public class KMeans {
 			System.out.println("centroid: " + centroid(data));
 			System.out.println();
 			
-			fileIO.printDataToFile(clusters.get(i).toString().replaceAll(",", "").replaceAll("[\\[\\]]",  ""), "" + i);
+			String s = "";
+			
+			for (List<Double> list : clusters.get(i)) {
+				s += list.toString().replaceAll(",", "").replaceAll("[\\[\\]]",  "") + "\n";
+			}
+			fileIO.printDataToFile(s, "./data_output/" + i);
 		}
 
 	}
